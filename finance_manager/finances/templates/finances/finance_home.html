@@ -1,0 +1,35 @@
+{% extends 'users/base.html'%}
+
+{% block title%} Финансы {% endblock %}
+
+
+{% block content%}
+    <h1> Мои финансы </h1>
+    <hr>
+    <p>
+        <form action="{% url 'income_list'%}">
+            {% csrf_token %}
+            <button type="submit"> Доходы </button>
+        </form>
+    </p>
+    <p>
+        <form action="{% url 'expense_list'%}">
+            {% csrf_token %}
+            <button type="submit"> Расходы </button>
+        </form>
+    </p>
+
+    <p>
+        <form action="{% url 'budget_list'%}">
+            {% csrf_token %}
+            <button type="submit"> Бюджеты </button>
+        </form>
+    </p>
+    <p>
+        <form action="{% url 'goal_list'%}">
+            {% csrf_token %}
+            <button type="submit"> Цели </button>
+        </form>
+    </p>
+
+{% endblock %}

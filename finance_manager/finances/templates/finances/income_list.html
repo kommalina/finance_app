@@ -1,0 +1,22 @@
+{% extends 'users/base.html'%}
+
+{% block title %} Доходы {% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1> Мои Доходы </h1>
+    <ul>
+        {% if incomes %}
+            {% for elem in incomes %}
+                <li>{{ elem.date }}: {{ elem.comment }} - {{ elem.amount }}</li>
+                <a href="{% url 'income_update' elem.id%}" class="btn btn-info"> Редактировать </a>
+                <a href="{% url 'income_delete' elem.id%}" class="btn btn-danger"> Удалить </a>
+            {% endfor %}
+        {% else %}
+            <p>Нет записей</p>
+        {% endif %}
+    </ul>
+    <a href="{% url 'income_create' %}">Добавить новый доход </a>
+</div>
+
+{% endblock %}

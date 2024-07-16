@@ -1,0 +1,17 @@
+{% extends 'users/base.html'%}
+
+{% block title %} Бюджеты {% endblock%}
+
+{% block content %}
+    <h1> Бюджеты </h1>
+    <ul>
+        {% if budgets %}
+            {% for elem in budgets %}
+                <li>{{elem.date}}: {{elem.category}} - {{elem.limit}} - {{elem.spent}}</li>
+            {% endfor %}
+        {% else %}
+            <p> Нет записей </p>
+        {% endif %}
+    </ul>
+    <a href="{% url 'budget_create'%}"> Добавить новые бюджеты</a>
+{% endblock %}

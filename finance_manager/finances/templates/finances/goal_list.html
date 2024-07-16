@@ -1,0 +1,17 @@
+{% extends 'users/base.html'%}
+
+{% block title%} Цели {% endblock %}
+
+{% block content %}
+    <h1> Цели </h1>
+    <ul>
+        {% if goals %}
+            {% for elem in goals %}
+                <li> {{elem.date}}: {{elem.name}} - {{elem.target_amount}} - {{elem.current_amount}} - {{elem.deadline}}</li>
+            {% endfor %}
+        {% else %}
+            <p> Нет записей </p>
+        {% endif %}
+    </ul>
+    <a href="{% url 'goal_create'%}"> Добавить новые цели </a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'users/base.html'%}
+
+{% block title %} Добавление бюджетов {% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1> Мой бюджет </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-success"> Добавить </button>
+    </form>
+    <a href="{% url 'budget_list'%}"> Посмотреть все бюджеты </a>
+</div>
+{% endblock %}
