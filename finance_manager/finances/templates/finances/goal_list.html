@@ -8,6 +8,8 @@
         {% if goals %}
             {% for elem in goals %}
                 <li> {{elem.date}}: {{elem.name}} - {{elem.target_amount}} - {{elem.current_amount}} - {{elem.deadline}}</li>
+                <a href="{% url 'goal_update' elem.id%}"> Редактировать </a>
+                <a href="{% url  'goal_delete' elem.id%}"> Удалить </a>
             {% endfor %}
         {% else %}
             <p> Нет записей </p>

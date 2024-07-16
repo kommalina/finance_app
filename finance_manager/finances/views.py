@@ -36,6 +36,17 @@ def income_list(request):
     incomes = Income.objects.filter(user=request.user)
     return render(request, 'finances/income_list.html', {'incomes': incomes})
 
+class ExpenseUpdateView(UpdateView):
+    model = Expense
+    template_name = 'finances/expense_create.html'
+    form_class = ExpenseForm
+    success_url = reverse_lazy('expense_list')
+
+class ExpenseDeleteView(DeleteView):
+    model = Expense
+    template_name = 'finances/expense_delete.html'
+    success_url = reverse_lazy('expense_list')
+
 def expense_create(request):
     if request.method == 'POST':
         form = ExpenseForm(request.POST)
@@ -51,6 +62,17 @@ def expense_create(request):
 def expense_list(request):
     expenses = Expense.objects.filter(user=request.user)
     return render(request, 'finances/expense_list.html', {'expenses':expenses})
+
+class BudgetUpdateView(UpdateView):
+    model = Budget
+    template_name = 'finances/budget_create.html'
+    form_class = BudgetForm
+    success_url = reverse_lazy('budget_list')
+
+class BudgetDeleteView(DeleteView):
+    model = Budget
+    template_name = 'finances/budget_delete.html'
+    success_url = reverse_lazy('budget_list')
 
 def budget_create(request):
     if request.method == 'POST':
@@ -68,6 +90,16 @@ def budget_list(request):
     budgets = Budget.objects.filter(user=request.user)
     return render(request, 'finances/budget_list.html', {'budgets':budgets})
 
+class GoalUpdateView(UpdateView):
+    model = Goal
+    template_name = 'finances/goal_create.html'
+    form_class = GoalForm
+    success_url = reverse_lazy('goal_list')
+
+class GoalDeleteView(DeleteView):
+    model = Goal
+    template_name = 'finances/goal_delete.html'
+    success_url = reverse_lazy('goal_list')
 
 def goal_create(request):
     if request.method == 'POST':

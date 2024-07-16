@@ -8,6 +8,8 @@
         {% if expenses %}
             {% for elem in expenses%}
                 <li>{{elem.date}}: {{elem.category}} - {{elem.amount}}</li>
+                <a href="{% url 'expense_update' elem.id%}" class="btn btn-info"> Редактировать </a>
+                <a href="{% url 'expense_delete' elem.id%}" class="btn btn-danger"> Удалить </a>
             {% endfor %}
         {% else %}
             <p> Нет записей </p>
