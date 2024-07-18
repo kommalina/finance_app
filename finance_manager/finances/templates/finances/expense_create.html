@@ -3,14 +3,13 @@
 {% block title %} Расходы {% endblock %}
 
 {% block content %}
-<div class="features">
-    <h1> Мои Расходы </h1>
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="btn btn-success"> Добавить </button>
-    </form>
-    <a href="{% url 'expense_list'%}"> Посмотреть все расходы </a>
-</div>
-
+    <div class="features">
+        <h1> Мои Расходы </h1>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-success"> Добавить </button>
+        </form>
+        <a href="{% url 'expense_list'%}"> Посмотреть все расходы </a>
+    </div>
 {% endblock %}

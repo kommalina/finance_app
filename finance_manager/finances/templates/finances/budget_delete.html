@@ -3,10 +3,10 @@
 {% block title%} Удаление записи {% endblock %}
 
 {% block content%}
-<h1> Удаление записи </h1>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger"> Удалить </button>
-</form>
-<a href="{% url 'budget_list'%}"> Посмотреть все бюджеты </a>
+    <h1> Удаление записи </h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger"> Удалить </button>
+    </form>
+    <a href="{% url 'budget_list'%}"> Посмотреть все бюджеты </a>
 {% endblock %}

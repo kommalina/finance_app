@@ -1,0 +1,15 @@
+{% extends 'users/base.html'%}
+
+{% block title %} Отчеты {% endblock %}
+
+{% block content%}
+<h1> Отчеты </h1>
+<ul>
+    <li>
+        <a href="{% url 'income_report'%}"> Отчеты по доходам </a>
+    </li>
+    <li>
+        <a href="{% url 'expense_report'%}"> Отчеты по расходам </a>
+    </li>
+</ul>
+{% endblock%}

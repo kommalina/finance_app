@@ -1,0 +1,10 @@
+{% extends 'users/base.html'%}
+{% block title %} Отчет о доходах {% endblock %}
+
+{% block content %}
+    <h1>Отчет о доходах</h1>
+    <div class="plot-container">
+        {{ graph_html|safe}}
+    </div>
+    <a href="{% url 'report_home' %}"> Назад </a>
+{% endblock %}

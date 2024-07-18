@@ -3,24 +3,25 @@
 
 {% block content%}
     <h1>Главная страница</h1>
-    <hr>
     {% if user.is_authenticated %}
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Log out</button>
-        </form>
+        <p>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Log out</button>
+            </form>
+        </p>
     {% else %}
         <p>
-        <form action="{% url 'login' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Log in</button>
-        </form>
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Log in</button>
+            </form>
         </p>
-    <p>
-        <form action="{% url 'register' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Register</button>
-        </form>
-    </p>
+        <p>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Register</button>
+            </form>
+        </p>
     {% endif %}
 {% endblock %}

@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('users.urls')),
-    path('users/', include('django.contrib.auth.urls')),
-    path('myfinances/', include('finances.urls'))
+    path('admin/', admin.site.urls),                        #Страница администрирования
+    path('', include('users.urls')),                        #Главная страница
+    path('users/', include('django.contrib.auth.urls')),    #Авторизация
+    path('myfinances/', include('finances.urls')),          #Страница с данными о финансах
+    path('report/', include('report.urls'))                 #Страница с отчетами
 ]

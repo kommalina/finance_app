@@ -7,7 +7,20 @@
     <ul>
         {% if goals %}
             {% for elem in goals %}
-                <li> {{elem.date}}: {{elem.name}} - {{elem.target_amount}} - {{elem.current_amount}} - {{elem.deadline}}</li>
+                <li> {{elem.date}}:
+                    <p>
+                       Цель: {{elem.name}}
+                    </p>
+                    <p>
+                        Конечная сумма: {{elem.target_amount}}
+                    </p>
+                    <p>
+                        Текущая сумма: {{elem.current_amount}}
+                    </p>
+                    <p>
+                        Накопить до: {{elem.deadline}}
+                    </p>
+                </li>
                 <a href="{% url 'goal_update' elem.id%}"> Редактировать </a>
                 <a href="{% url  'goal_delete' elem.id%}"> Удалить </a>
             {% endfor %}
