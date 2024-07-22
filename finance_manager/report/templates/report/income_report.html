@@ -2,9 +2,11 @@
 {% block title %} Отчет о доходах {% endblock %}
 
 {% block content %}
+<div class="features">
     <h1>Отчет о доходах</h1>
     <div class="plot-container">
         {{ graph_html|safe}}
     </div>
-    <a href="{% url 'report_home' %}"> Назад </a>
+    <a href="{% url 'report_home' %}" class="btn btn-dark"> Назад </a>
+</div>
 {% endblock %}

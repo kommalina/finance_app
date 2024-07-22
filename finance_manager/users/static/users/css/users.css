@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+/* Боковая панель */
+aside {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+}
+aside a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+aside a:hover {
+    background-color: #34495e;
+}
+
+aside a li{
+     list-style-type: none;
+}
+
+/* Основная панель */
+main{
+    flex-grow: 1;
+    background-color: #ecf0f1;
+    padding: 20px;
+
+}
+main .features h1{
+    font-size: 50px;
+    margin-top: 10px;
+    color:  #2c3e50;
+    text-align: center;
+}
+main .features h5{
+    margin-top: 50px;
+    color:  #2c3e50;
+    text-align: center;
+}
+main .features h6{
+    margin-top: 20px;
+    color:  #2c3e50;
+    text-align: center;
+}
+ main .features button{
+    margin: 0 auto;
+    display: block;
+    margin-top:50px;
+ }
+ main .features a{
+    text-align: center;
+    margin-top: 10px
+ }
+ main .plot-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ main .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+

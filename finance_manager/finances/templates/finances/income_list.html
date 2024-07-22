@@ -9,13 +9,19 @@
         {% if incomes %}
             {% for elem in incomes %}
                 <li>{{ elem.date }}: {{ elem.comment }} - {{ elem.amount }}</li>
-                <a href="{% url 'income_update' elem.id%}" class="btn btn-info"> Редактировать </a>
+                <a href="{% url 'income_update' elem.id%}" class="btn btn-primary"> Редактировать </a>
                 <a href="{% url 'income_delete' elem.id%}" class="btn btn-danger"> Удалить </a>
+                <hr>
             {% endfor %}
         {% else %}
             <p>Нет записей</p>
         {% endif %}
     </ul>
-    <a href="{% url 'income_create' %}">Добавить новый доход </a>
+    <p>
+        <a href="{% url 'income_create' %}" class="btn btn-dark">Добавить новый доход </a>
+    </p>
+    <p>
+        <a href="{% url 'finance_home' %}" class="btn btn-dark"> Назад </a>
+    </p>
 </div>
 {% endblock %}

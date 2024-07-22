@@ -3,17 +3,27 @@
 {% block title %} Добавление расходов {% endblock %}
 
 {% block content %}
+<div class="features">
     <h1> Расходы </h1>
     <ul>
         {% if expenses %}
             {% for elem in expenses%}
                 <li>{{elem.date}}: {{elem.category}} - {{elem.amount}}</li>
-                <a href="{% url 'expense_update' elem.id%}" class="btn btn-info"> Редактировать </a>
+                <a href="{% url 'expense_update' elem.id%}" class="btn btn-primary"> Редактировать </a>
                 <a href="{% url 'expense_delete' elem.id%}" class="btn btn-danger"> Удалить </a>
+                <hr>
             {% endfor %}
         {% else %}
             <p> Нет записей </p>
         {% endif %}
     </ul>
-    <a href="{% url 'expense_create' %}"> Добавить новые расходы </a>
+    <p>
+        <a href="{% url 'expense_create' %}" class="btn btn-dark">Добавить новый расход </a>
+    </p>
+    <p>
+        <a href="{% url 'finance_home' %}" class="btn btn-dark"> Назад </a>
+    </p>
+
+</div>
+
 {% endblock %}

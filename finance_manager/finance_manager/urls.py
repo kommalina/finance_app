@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),                        #Страница администрирования
@@ -23,4 +25,4 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),    #Авторизация
     path('myfinances/', include('finances.urls')),          #Страница с данными о финансах
     path('report/', include('report.urls'))                 #Страница с отчетами
-]
+] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

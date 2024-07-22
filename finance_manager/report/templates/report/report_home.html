@@ -1,15 +1,41 @@
 {% extends 'users/base.html'%}
 
-{% block title %} Отчеты {% endblock %}
+{% block title %} Отчёты {% endblock %}
 
 {% block content%}
-<h1> Отчеты </h1>
-<ul>
-    <li>
-        <a href="{% url 'income_report'%}"> Отчеты по доходам </a>
-    </li>
-    <li>
-        <a href="{% url 'expense_report'%}"> Отчеты по расходам </a>
-    </li>
-</ul>
+<div class="features">
+    <h1> Отчёты </h1>
+    {% if user.is_authenticated %}
+        <p>
+            <form action="{% url 'income_report'%}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-dark"> Отчеты по доходам </button>
+            </form>
+        </p>
+       <p>
+            <form action="{% url 'expense_report'%}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-dark"> Отчеты по расходам </button>
+            </form>
+       </p>
+    {% else %}
+        <p>
+            <h5> Вы не авторизовались, зайдите в свой аккаунт или зарегистрируйтесь, чтобы посмотреть Отчёты по финансам </h5>
+        </p>
+        <hr>
+        <p>
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-dark"> Вход </button>
+            </form>
+        </p>
+        <p>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-dark"> Регистрация </button>
+            </form>
+        </p>
+    {% endif %}
+</div>
+
 {% endblock%}

@@ -9,7 +9,7 @@ class Income(models.Model):
     amount = models.DecimalField(max_digits = 10, decimal_places = 2, default=0)
     date = models.DateTimeField(default=timezone.now)
     def __str__(self):
-        return f"{self.user} - {self.comment} - {self.amount}"
+        return f"{self.user} - {self.comment} - {self.amount} - {self.date}"
 
 #Модель записи Расхода
 class Expense(models.Model):
@@ -18,7 +18,7 @@ class Expense(models.Model):
     amount = models.DecimalField(max_digits = 10, decimal_places = 2, default=0)
     date = models.DateTimeField(default=timezone.now)
     def __str__(self):
-        return f"{self.user} - {self.category} - {self.amount}"
+        return f"{self.user} - {self.category} - {self.amount} - {self.date}"
 
 #Модель записи Бюджета
 class Budget(models.Model):
@@ -28,7 +28,7 @@ class Budget(models.Model):
     spent =  models.DecimalField(max_digits=10, decimal_places=2, default=0)
     date = models.DateTimeField(default=timezone.now)
     def __str__(self):
-        return f"{self.user} - {self.category} - {self.limit} - {self.spent}"
+        return f"{self.user} - {self.category} - {self.limit} - {self.spent} - {self.date}"
 
 #Модель записи Цели
 class Goal(models.Model):
@@ -39,5 +39,5 @@ class Goal(models.Model):
     deadline = models.DateField()
     date = models.DateTimeField(default=timezone.now)
     def __str__(self):
-        return f"{self.user} - {self.name} - {self.target_amount} - {self.current_amount}"
+        return f"{self.user} - {self.name} - {self.target_amount} - {self.current_amount} - {self.date}"
 

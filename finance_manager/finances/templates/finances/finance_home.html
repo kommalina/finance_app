@@ -4,31 +4,51 @@
 
 
 {% block content%}
+<div class="features">
     <h1> Мои финансы </h1>
+    {% if user.is_authenticated%}
     <p>
-        <form action="{% url 'income_list'%}">
-            {% csrf_token %}
-            <button type="submit"> Доходы </button>
-        </form>
+    <form action="{% url 'income_list'%}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark"> Доходы </button>
+    </form>
     </p>
     <p>
-        <form action="{% url 'expense_list'%}">
-            {% csrf_token %}
-            <button type="submit"> Расходы </button>
-        </form>
-    </p>
-
-    <p>
-        <form action="{% url 'budget_list'%}">
-            {% csrf_token %}
-            <button type="submit"> Бюджеты </button>
-        </form>
-    </p>
-    <p>
-        <form action="{% url 'goal_list'%}">
-            {% csrf_token %}
-            <button type="submit"> Цели </button>
-        </form>
+    <form action="{% url 'expense_list'%}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark"> Расходы </button>
+    </form>
     </p>
 
+    <p>
+    <form action="{% url 'budget_list'%}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark"> Бюджеты </button>
+    </form>
+    </p>
+    <p>
+    <form action="{% url 'goal_list'%}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark"> Цели </button>
+    </form>
+    </p>
+    {% else %}
+    <p>
+    <h5> Вы не авторизовались, зайдите в свой аккаунт или зарегистрируйтесь, чтобы посмотреть данные о ваших финансах </h5>
+    </p>
+    <hr>
+    <p>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-dark"> Вход </button>
+        </form>
+    </p>
+    <p>
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-dark"> Регистрация </button>
+        </form>
+    </p>
+    {% endif %}
+</div>
 {% endblock %}

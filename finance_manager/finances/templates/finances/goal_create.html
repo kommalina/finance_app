@@ -5,11 +5,14 @@
 {% block content %}
     <div class="features">
         <h1> Мои цели </h1>
-        <form method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit" class="btn btn-success"> Добавить </button>
-        </form>
-        <a href="{% url 'goal_list'%}"> Посмотреть все цели </a>
+        <div class="form">
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-success"> Добавить </button>
+            </form>
+        </div>
+
+        <a href="{% url 'goal_list'%}" class="btn btn-dark"> Посмотреть все цели </a>
     </div>
 {% endblock %}

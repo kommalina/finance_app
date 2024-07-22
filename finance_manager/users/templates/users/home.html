@@ -2,26 +2,30 @@
 {% block title%} Главная страница {% endblock %}
 
 {% block content%}
+<div class="features">
     <h1>Главная страница</h1>
+    <h5> Данное web-приложение служит для отслеживания личных финансов </h5>
+    <h6> На главной странице вы можете выполнить вход/выход и регистрацию </h6>
     {% if user.is_authenticated %}
-        <p>
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Log out</button>
-            </form>
-        </p>
+    <p>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark">Log out</button>
+    </form>
+    </p>
     {% else %}
-        <p>
-            <form action="{% url 'login' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Log in</button>
-            </form>
-        </p>
-        <p>
-            <form action="{% url 'register' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Register</button>
-            </form>
-        </p>
+    <p>
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark"> Вход </button>
+    </form>
+    </p>
+    <p>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark"> Регистрация </button>
+    </form>
+    </p>
     {% endif %}
+</div>
 {% endblock %}

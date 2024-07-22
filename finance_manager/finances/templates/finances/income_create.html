@@ -3,11 +3,17 @@
 {% block title%} Добавление доходов {% endblock %}
 
 {% block content%}
+<div class="features">
     <h1> Добавление дохода </h1>
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="btn btn-success"> Добавить </button>
-    </form>
-    <a href="{% url 'income_list'%}"> Посмотреть все доходы </a>
+    <div class="form">
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-success"> Добавить </button>
+        </form>
+    </div>
+
+    <a href="{% url 'income_list'%}" class="btn btn-dark"> Посмотреть все доходы </a>
+</div>
+
 {% endblock %}

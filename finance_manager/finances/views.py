@@ -83,7 +83,8 @@ class BudgetDeleteView(DeleteView):
 #Класс Создания записи о бюджетах
 class BudgetCreateView(CreateView):
     model = Budget
-    template_name = 'finances/budget_delete.html'
+    template_name = 'finances/budget_create.html'
+    form_class = BudgetForm
     success_url = reverse_lazy('budget_list')
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -111,7 +112,8 @@ class GoalDeleteView(DeleteView):
 #Класс Создания записи о целях
 class GoalCreateView(CreateView):
     model = Goal
-    template_name = 'finances/goal_delete.html'
+    template_name = 'finances/goal_create.html'
+    form_class = GoalForm
     success_url = reverse_lazy('goal_list')
     def form_valid(self, form):
         form.instance.user = self.request.user

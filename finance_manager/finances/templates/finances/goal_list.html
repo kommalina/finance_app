@@ -3,13 +3,14 @@
 {% block title%} Цели {% endblock %}
 
 {% block content %}
+<div class="features">
     <h1> Цели </h1>
     <ul>
         {% if goals %}
             {% for elem in goals %}
                 <li> {{elem.date}}:
                     <p>
-                       Цель: {{elem.name}}
+                        Цель: {{elem.name}}
                     </p>
                     <p>
                         Конечная сумма: {{elem.target_amount}}
@@ -21,12 +22,18 @@
                         Накопить до: {{elem.deadline}}
                     </p>
                 </li>
-                <a href="{% url 'goal_update' elem.id%}"> Редактировать </a>
-                <a href="{% url  'goal_delete' elem.id%}"> Удалить </a>
+                <a href="{% url 'goal_update' elem.id%}" class="btn btn-primary"> Редактировать </a>
+                <a href="{% url  'goal_delete' elem.id%}" class="btn btn-danger"> Удалить </a>
+                <hr>
             {% endfor %}
         {% else %}
             <p> Нет записей </p>
         {% endif %}
     </ul>
-    <a href="{% url 'goal_create'%}"> Добавить новые цели </a>
+    <p>
+        <a href="{% url 'goal_create' %}" class="btn btn-dark">Добавить новую цель </a>
+    </p>
+    <a href="{% url 'finance_home' %}" class="btn btn-dark"> Назад </a>
+</div>
+
 {% endblock %}
